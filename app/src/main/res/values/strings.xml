@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Media Player</string>
+    <string name="seleccionar_el_archivo_a_reproducir">Seleccione el archivo a reproducir:</string>
+    <string name="seleccione_ubicacion">Seleccione ubicación:</string>
+    <string name="icono_pelicula">icono pelicula</string>
+    <string name="textview">TextView</string>
+</resources>
