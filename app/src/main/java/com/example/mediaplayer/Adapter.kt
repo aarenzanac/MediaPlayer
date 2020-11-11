@@ -1,60 +1,43 @@
 package com.example.mediaplayer
 
-/*
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+
+
 class Adapter(var context: Context, items: ArrayList<Archivo>): BaseAdapter(){
+    RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
-    //CREO EL ARRAY QUE CONTENDRÁ LOS OBJETOS DE TIPO ARCHIVO
-    var items: ArrayList<Archivo>? = null
+        // Provide a reference to the views for each data item
+        // Complex data items may need more than one view per item, and
+        // you provide access to all the views for a data item in a view holder.
+        // Each data item is just a string in this case that is shown in a TextView.
+        class MyViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 
-    //CONSTRUCTOR
-    init{
-        this.items = items
-    }
-
-    //IMPLEMENTO LOS MÉTODOS QUE OBLIGA A RECARGAR AL HEREDAR DE BASEADAPTER
-    override fun getCount(): Int {
-        return items?.count()!!
-    }
-
-    override fun getItem(posicion: Int): Any {
-        return items?.get(posicion)!!
-    }
-
-    override fun getItemId(posicion: Int): Long {
-        return posicion.toLong()
-    }
-
-    override fun getView(posicion: Int, convertView: View?, parent: ViewGroup?): View {
-        var vista = convertView
-        var holder: ViewHolder?
-
-        //SI LA VISTA ESTA VACÍA, QUE LA CREE
-        if(vista == null){
-            vista = LayoutInflater.from(context).inflate(R.layout.template_listview, null)
-            holder = ViewHolder(vista)
-            vista.tag = holder
-        }else{
-            holder = vista.tag as? ViewHolder
+        // Create new views (invoked by the layout manager)
+        override fun onCreateViewHolder(parent: ViewGroup,
+                                        viewType: Int): MyAdapter.MyViewHolder {
+            // create a new view
+            val textView = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.my_text_view, parent, false) as TextView
+            // set the view's size, margins, paddings and layout parameters
+            ...
+            return MyViewHolder(textView)
         }
-        val item = items?.get(posicion)
 
-        //RELLENA LA VISTA
-        holder?.nombre?.text = item?.nombre
-        holder?.imagen?.setImageResource(item?.icono!!)
-
-        return vista!!
-
-    }
-
-    private class ViewHolder(vista: View){
-        var nombre: TextView? = null
-        var imagen: ImageView? = null
-
-        init{
-            nombre = vista.findViewById(R.id.textViewMedida)
-            imagen = vista.findViewById(R.id.imageViewMedida)
+        // Replace the contents of a view (invoked by the layout manager)
+        override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+            // - get element from your dataset at this position
+            // - replace the contents of the view with that element
+            holder.textView.text = myDataset[position]
         }
+
+        // Return the size of your dataset (invoked by the layout manager)
+        override fun getItemCount() = myDataset.size
     }
 
-    }
-}*/
+
+}

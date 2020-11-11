@@ -1,18 +1,15 @@
 package com.example.mediaplayer
 
+import android.widget.VideoView
+
 class Archivo {
 
-    /*class Archivo(nombre: File, icono: Int){
+    class Archivo(video: VideoView, titulo: String){
 
-        var nombre: File
-        var icono: Int = 0
+        var video :VideoView = TODO()
+        var titulo: String = ""
 
 
-        constructor(nombre : File, icono: Int) {
-            this.nombre = nombre
-            this.icono = icono
 
-        }
-
-    }*/
+    }
 }
