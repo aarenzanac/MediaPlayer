@@ -11,13 +11,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    var archivos<>
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        isDeviceProtectedStorage()
+        //isDeviceProtectedStorage()
 
         viewManager = LinearLayoutManager(this)
         viewAdapter = Adapter(Constant.allMediaList)
