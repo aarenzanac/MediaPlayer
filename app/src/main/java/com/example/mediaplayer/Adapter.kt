@@ -1,14 +1,6 @@
 package com.example.mediaplayer
 
-import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.TextView
-
-
+/*
 class Adapter(var context: Context, items: ArrayList<Archivo>): BaseAdapter(){
 
     //CREO EL ARRAY QUE CONTENDRÁ LOS OBJETOS DE TIPO ARCHIVO
@@ -65,4 +57,4 @@ class Adapter(var context: Context, items: ArrayList<Archivo>): BaseAdapter(){
     }
 
     }
-}
+}*/

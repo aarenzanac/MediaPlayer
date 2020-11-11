@@ -1,10 +1,8 @@
 package com.example.mediaplayer
 
-import java.io.File
-
 class Archivo {
 
-    class Archivo(nombre: File, icono: Int){
+    /*class Archivo(nombre: File, icono: Int){
 
         var nombre: File
         var icono: Int = 0
@@ -16,5 +14,5 @@ class Archivo {
 
         }
 
-    }
+    }*/
 }
