@@ -5,7 +5,7 @@ import com.example.mediaplayer.Constant.videoExtensions
 import java.io.File
 
 class GuardarArchivos {
-    fun cargarArchivos(directorio: File){
+    fun cargarArchivos(directorio: File): Array<File>{
         val listaArchivos: Array<File> = directorio.listFiles()
 
         if(listaArchivos != null){
@@ -22,6 +22,7 @@ class GuardarArchivos {
                 }
             }
         }
+        return listaArchivos
 
     }
 }

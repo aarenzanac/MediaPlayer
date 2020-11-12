@@ -4,4 +4,5 @@
     <string name="seleccione_ubicacion">Seleccione ubicación:</string>
     <string name="icono_pelicula">icono pelicula</string>
     <string name="textview">TextView</string>
+    <string name="logolinkia">LogoLinkia</string>
 </resources>
