@@ -1,23 +1,28 @@
 package com.example.mediaplayer
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
 import android.widget.TextView
-import android.widget.Toast
 import android.widget.VideoView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mediaplayer.Constant.allMediaList
+import java.io.File
 
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
-    var peliculas: MutableList<Pelicula>  = ArrayList()
+    var peliculas: MutableList<File>  = ArrayList()
     lateinit var context:Context
+    lateinit var uri: Uri
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(peliculas[position])
+         uri = Uri.fromFile(allMediaList.get(position))
+
+        holder.bind(uri)
     }
 
 
@@ -35,9 +40,11 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         var videoViewPelicula: VideoView = R.id.videoViewPelicula as VideoView
         var textViewPelicula: TextView = R.id.textViewPelicula as TextView
 
-        fun bind(objetoPelicula: Pelicula){
-            videoViewPelicula = objetoPelicula.video
-            textViewPelicula.text = objetoPelicula.titulo
+
+        fun bind(pelicula: Uri){
+            videoViewPelicula.setVideoURI(pelicula)
+            textViewPelicula.text = pelicula.toString()
+
 
 
 
@@ -45,11 +52,11 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
                 videoViewPelicula.start()
                 val mediaController = MediaController(view.context)
                 videoViewPelicula.setMediaController(mediaController)
-                Toast.makeText(
+                /*Toast.makeText(
                         view.context,
-                        objetoPelicula.titulo,
+
                         Toast.LENGTH_SHORT
-                ).show()
+                ).show()*/
             })
         }
     }
