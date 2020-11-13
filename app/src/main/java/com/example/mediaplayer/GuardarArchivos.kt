@@ -11,28 +11,23 @@ class GuardarArchivos {
     val listaURI: ArrayList<URI> = ArrayList<URI>()
     var listaArchivos: ArrayList<File> = ArrayList<File>()
 
-    fun cargarArchivos(directorio: File): ArrayList<URI>{
+    fun cargarArchivos(directorio: File){
+        var listado: Array<File> = directorio.listFiles()!!
 
-        if(directorio.isDirectory){
-            for(archivo in directorio.list().size){
-                if(archivo.isDirectory){
-                    cargarArchivos(archivo)
-                }else{
-                    var URIArchivo: URI = listaURI.add(archivo.toUri())
-                    for(extension: String in videoExtensions){
-                        if(nombre.endsWith(extension)){
-                            allMediaList.add(archivo)
+        if(listado != null && listado.size > 0) {
+            for (file: File in listado) {
+                if (file.isDirectory) {
+                    cargarArchivos(file)
+                } else {
+                    var nombre: String = file.name.toLowerCase()
+                    for (extension: String in videoExtensions) {
+                        if (nombre.endsWith(extension)) {
+                            allMediaList.add(file)
                         }
                     }
                 }
             }
         }
-        return listaURI
-
-    }
-
-    private operator fun Int.iterator(): Iterator<File> {
-        listaArchivos.add(index)
     }
 }
 
