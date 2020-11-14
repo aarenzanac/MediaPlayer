@@ -4,7 +4,6 @@ package com.example.mediaplayer
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Environment
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -14,7 +13,7 @@ import java.io.File
 class SplashScreen : AppCompatActivity() {
 
     val permisos = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    private var duracionSplashScreen: Long = 3000
+    private var duracionSplashScreen: Long = 2000
     var guardarArchivos: GuardarArchivos = GuardarArchivos()
 
     private lateinit var almacenamiento: File
@@ -28,13 +27,14 @@ class SplashScreen : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, permisos, 121)
         }
 
-        pathsAlmacenamiento = getExternalFilesDirs(Environment.getExternalStorageState())
+        pathsAlmacenamiento = getExternalFilesDirs(null)
+        //var path = File("/storage/0CE9-3316/")
 
         for(path: File? in pathsAlmacenamiento){
             almacenamiento = path!!
-            guardarArchivos.cargarArchivos(almacenamiento)
+            guardarArchivos.cargarArchivos(path)
         }
-
+        //guardarArchivos.cargarArchivos(path)!!
 
         Handler().postDelayed(Runnable
         //SE MUESTRA EL SPLASH SCREEN DURANTE EL TIEMPO ESTIPULADO EN LA VARIABLE duracionSplasScreen

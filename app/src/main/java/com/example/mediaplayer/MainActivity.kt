@@ -7,31 +7,29 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
-
-
+    private var adapter:RecyclerAdapter = RecyclerAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
-        recyclerView = findViewById(R.id.recyclerView)
-
-        inicializarRecycler()
+        var recyclerView: RecyclerView  = findViewById(R.id.recyclerView)
+        inicializarRecycler(recyclerView)
 
 
     }
 
-    fun inicializarRecycler(){
+    private fun inicializarRecycler(recyclerView: RecyclerView){
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
         recyclerView.setItemViewCacheSize(20)
         recyclerView.isNestedScrollingEnabled = false
 
-        val adapter = RecyclerAdapter()
-        recyclerView.adapter = adapter
 
+        recyclerView.adapter = adapter
     }
 }
+
+
 

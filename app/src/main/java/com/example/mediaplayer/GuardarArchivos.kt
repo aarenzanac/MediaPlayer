@@ -8,7 +8,8 @@ class GuardarArchivos {
 
 
     fun cargarArchivos(directorio: File){
-        var listado: Array<File> = directorio.listFiles()!!
+        var listado: Array<File>?
+        listado = directorio.listFiles()
 
         if(listado != null && listado.size > 0) {
             for (file: File in listado) {
@@ -18,7 +19,7 @@ class GuardarArchivos {
                     var nombre: String = file.name.toLowerCase()
                     for (extension: String in videoExtensions) {
                         if (nombre.endsWith(extension)) {
-                            allMediaList.add(file)
+                            allMediaList?.add(file)
                         }
                     }
                 }
