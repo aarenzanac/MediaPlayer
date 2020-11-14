@@ -1,10 +1,11 @@
 package com.example.mediaplayer
 
+import android.media.MediaPlayer
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.MediaController
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
@@ -36,6 +37,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         private var videoViewPelicula = view.findViewById(R.id.videoViewPelicula) as VideoView
         private var textViewPelicula = view.findViewById(R.id.textViewPelicula) as TextView
+        private lateinit var mediaPlayer: MediaPlayer
 
 
         fun bind(pelicula: File){
@@ -46,12 +48,24 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
 
             view.setOnClickListener(View.OnClickListener {
+                Toast.makeText(view.context, pelicula.name, Toast.LENGTH_SHORT).show()})
+
+            val botonPlay = view.findViewById(R.id.imageViewPlay) as ImageView
+            val botonPause = view.findViewById(R.id.imageViewPause) as ImageView
+            val botonStop = view.findViewById(R.id.imageViewStop) as ImageView
+
+
+            botonPlay.setOnClickListener {
                 videoViewPelicula.start()
-                val mediaController = MediaController(view.context)
-                videoViewPelicula.setMediaController(mediaController)
-                Toast.makeText(
-                        view.context, pelicula.name, Toast.LENGTH_SHORT).show()
-            })
+            }
+            botonPause.setOnClickListener {
+                videoViewPelicula.pause()
+            }
+            botonStop.setOnClickListener {
+                videoViewPelicula.stopPlayback()
+                videoViewPelicula.resume()
+                videoViewPelicula.setVideoURI(Uri.fromFile(pelicula))
+            }
         }
     }
 }

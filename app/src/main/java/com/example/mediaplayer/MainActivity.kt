@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         inicializarRecycler(recyclerView)
 
 
+
     }
 
     private fun inicializarRecycler(recyclerView: RecyclerView){
@@ -26,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         recyclerView.setItemViewCacheSize(20)
         recyclerView.isNestedScrollingEnabled = false
 
-
         recyclerView.adapter = adapter
+
     }
 }
 
