@@ -8,6 +8,7 @@
     android:padding="10dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/carViewPelicula"
         android:layout_width="196dp"
         android:layout_height="161dp"
         android:layout_gravity="center_vertical"

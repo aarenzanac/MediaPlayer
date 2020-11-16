@@ -1,12 +1,13 @@
 package com.example.mediaplayer
 
-import com.example.mediaplayer.Constant.allMediaList
+import com.example.mediaplayer.Constant.listadoArchivosVideo
 import com.example.mediaplayer.Constant.videoExtensions
 import java.io.File
 
 class GuardarArchivos {
 
-
+    //FUNCIÓN QUE RECORRE LOS DIFERENTES DIRECTORIOS. SI ENCUENTRA OTRO DIRECTORIO, SE VUELVE A LLAMAR Y SI ENCUENTRA ARCHIVOS LOS RECORRE
+    //COMPARANDOLOS CON LAS EXTENSIONES. SI COINCIDE CON LAS EXTENSIONES, LO AÑADE AL LISTADO LISTADOARCHIVOSVIDEO.
     fun cargarArchivos(directorio: File){
         var listado: Array<File>?
         listado = directorio.listFiles()
@@ -19,7 +20,7 @@ class GuardarArchivos {
                     var nombre: String = file.name.toLowerCase()
                     for (extension: String in videoExtensions) {
                         if (nombre.endsWith(extension)) {
-                            allMediaList?.add(file)
+                            listadoArchivosVideo?.add(file)
                         }
                     }
                 }
