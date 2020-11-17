@@ -9,4 +9,7 @@
     <string name="botonstop">BotonStop</string>
     <string name="botonplay">BotonPlay</string>
     <string name="botonpausa">BotonPausa</string>
+    <string name="seleccione_unidad">MOSTRAR ARCHIVOS DE VIDEO POR UNIDAD:</string>
+    <string name="botoncargar">Cargar Películas</string>
+
 </resources>

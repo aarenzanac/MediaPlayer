@@ -45,6 +45,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         //ASIGNA LOS DIFERENTES ELEMENTOS A CADA CAMPO DE CADA ITEM
         fun bind(pelicula: File) {
             videoViewPelicula.setVideoURI(Uri.fromFile(pelicula))
+
             textViewPelicula.text = pelicula.name
 
             //ACCION CUANDO SE PULSA EN EL ITEM

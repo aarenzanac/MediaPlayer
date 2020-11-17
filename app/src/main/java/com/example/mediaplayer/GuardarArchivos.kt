@@ -8,9 +8,9 @@ class GuardarArchivos {
 
     //FUNCIÓN QUE RECORRE LOS DIFERENTES DIRECTORIOS. SI ENCUENTRA OTRO DIRECTORIO, SE VUELVE A LLAMAR Y SI ENCUENTRA ARCHIVOS LOS RECORRE
     //COMPARANDOLOS CON LAS EXTENSIONES. SI COINCIDE CON LAS EXTENSIONES, LO AÑADE AL LISTADO LISTADOARCHIVOSVIDEO.
-    fun cargarArchivos(directorio: File){
+    fun cargarArchivos(path: File){
         var listado: Array<File>?
-        listado = directorio.listFiles()
+        listado = path.listFiles()
 
         if(listado != null && listado.size > 0) {
             for (file: File in listado) {

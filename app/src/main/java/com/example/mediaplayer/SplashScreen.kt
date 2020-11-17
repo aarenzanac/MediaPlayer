@@ -16,8 +16,6 @@ class SplashScreen : AppCompatActivity() {
     private var duracionSplashScreen: Long = 3000
     var guardarArchivos: GuardarArchivos = GuardarArchivos()
 
-    //private lateinit var almacenamiento: File
-
 
     public override fun onCreate(saveInstanceState: Bundle?) {
         super.onCreate(saveInstanceState)
@@ -27,14 +25,11 @@ class SplashScreen : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, permisos, 121)
         }
 
+        //CARGA LOS VIDEOS DEL ALMACENAMIENTO INTERNO
+        var pathAlmacenamientoInterno = File("/storage/emulated/0/")
+        //var pathAlmacenamientoExtraible = File("storage/emulated/")
 
-        var path = File("/storage/0CE9-3316/")
-/*
-        for(path: File? in pathsAlmacenamiento){
-            almacenamiento = path!!
-            guardarArchivos.cargarArchivos(path)
-        }*/
-        guardarArchivos.cargarArchivos(path)
+        guardarArchivos.cargarArchivos(pathAlmacenamientoInterno)
 
         Handler().postDelayed(Runnable
         //SE MUESTRA EL SPLASH SCREEN DURANTE EL TIEMPO ESTIPULADO EN LA VARIABLE duracionSplasScreen
