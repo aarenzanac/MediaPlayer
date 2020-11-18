@@ -25,6 +25,7 @@ class VideoViewFullScreen : AppCompatActivity() {
 
         videoFullScreen.setVideoURI(uriPelicula)
         videoFullScreen.setMediaController(mediaController)
+        videoFullScreen.start()
 
     }
 }

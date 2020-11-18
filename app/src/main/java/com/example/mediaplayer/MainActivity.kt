@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private var unidadSeleccionada: Int = 0
     private var cargarArchivos: GuardarArchivos = GuardarArchivos()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,12 +29,13 @@ class MainActivity : AppCompatActivity() {
 
         //CREO EL SPINNER CON LAS UNIDADES DESDE EL XML UNIDADES DE ALMACENAMIENTO
         val spinnerUnidades: Spinner = findViewById<Spinner>(R.id.spinnerUnidades)
-        val spinnerAdapter: ArrayAdapter<*> = ArrayAdapter.createFromResource(this, R.array.unidadesAlmacenamiento, android.R.layout.simple_spinner_item)
+        val spinnerAdapter: ArrayAdapter<*> = ArrayAdapter.createFromResource(this, R.array.unidadesAlmacenamiento, android.R.layout.simple_spinner_dropdown_item)
 
         var unidadSeleccionada: Int = spinnerUnidades.selectedItemPosition
         spinnerUnidades.adapter = spinnerAdapter
 
         val botonCargar: Button = findViewById(R.id.buttonCargar)
+
 
         //CARGA LAS PELÍCULAS EN FUNCIÓN DE LA UNIDAD SELECCIONADA
         botonCargar.setOnClickListener {
